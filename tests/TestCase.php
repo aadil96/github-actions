@@ -17,5 +17,7 @@ abstract class TestCase extends BaseTestCase
             'email' => 'mail@test.com',
             'password' => bcrypt('password')
         ]);
+        $this->actingAs(User::first());
+        $this->withExceptionHandling();
     }
 }
