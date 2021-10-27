@@ -24,8 +24,7 @@ class RoutesTest extends TestCase
     public function test_all_get_routes_return_200_as_status_code()
     {
         $routeCollection = Route::getRoutes();
-        if (false)
-            echo "Hi, Hello World";
+
 
         foreach ($routeCollection as $value ) {
             if (!Str::contains($value->uri(), $this->except) && $value->methods()[0] === "GET") {
