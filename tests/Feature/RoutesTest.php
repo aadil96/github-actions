@@ -25,8 +25,8 @@ class RoutesTest extends TestCase
     {
         $routeCollection = Route::getRoutes();
         if (false)
-            echo "Hi";
-            
+            echo "Hi, Hello World";
+
         foreach ($routeCollection as $value ) {
             if (!Str::contains($value->uri(), $this->except) && $value->methods()[0] === "GET") {
                 $response = $this->call($value->methods()[0], $value->uri());
