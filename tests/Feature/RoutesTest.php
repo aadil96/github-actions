@@ -28,7 +28,6 @@ class RoutesTest extends TestCase
 
         foreach ($routeCollection as $value) {
             if (! Str::contains($value->uri(), $this->except) && $value->methods()[0] === 'GET') {
-
                 $response = $this->call($value->methods()[0], $value->uri());
                 $response->assertOk();
             }

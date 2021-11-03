@@ -22,6 +22,7 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 Route::post('/dashboard', function () {
-    if (true)
+    if (true) {
         return response()->json(['success' => true], 200);
+    }
 })->middleware('auth');
