@@ -15,7 +15,7 @@ abstract class TestCase extends BaseTestCase
         User::create([
             'name' => 'test user',
             'email' => 'mail@test.com',
-            'password' => bcrypt('password')
+            'password' => bcrypt('password'),
         ]);
         $this->actingAs(User::first());
         $this->withExceptionHandling();

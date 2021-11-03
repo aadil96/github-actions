@@ -2,10 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Tests\TestCase;
@@ -18,17 +15,18 @@ class RoutesTest extends TestCase
         'sanctum',
         'outh',
         'passport',
-        'telescope'
+        'telescope',
     ];
 
     public function test_all_get_routes_return_200_as_status_code()
     {
         $routeCollection = Route::getRoutes();
-        if (false)
-            echo "Hi";
-            
-        foreach ($routeCollection as $value ) {
-            if (!Str::contains($value->uri(), $this->except) && $value->methods()[0] === "GET") {
+        if (false) {
+            echo 'Hi';
+        }
+
+        foreach ($routeCollection as $value) {
+            if (! Str::contains($value->uri(), $this->except) && $value->methods()[0] === 'GET') {
                 $response = $this->call($value->methods()[0], $value->uri());
                 $response->assertOk();
             }
@@ -38,8 +36,8 @@ class RoutesTest extends TestCase
     public function test_all_post_routes_return_200_as_status_code()
     {
         $routeCollection = Route::getRoutes();
-        foreach ($routeCollection as $value ) {
-            if (!Str::contains($value->uri(), 'sanctum') && $value->methods()[0] === "POST") {
+        foreach ($routeCollection as $value) {
+            if (! Str::contains($value->uri(), 'sanctum') && $value->methods()[0] === 'POST') {
                 $response = $this->call($value->methods()[0], $value->uri());
                 $response->assertOk();
             }
